@@ -2,7 +2,9 @@ name:
   .NET
 
 on:
-  push
+  pull_request:
+  push:
+    branches: master
 
 jobs:
   welcome:
@@ -22,4 +24,15 @@ jobs:
       with:
         dotnet-version: '6.x.x'
     - run: dotnet build
+    
+  test:
+    needs: [welcome, build]
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    - uses: actions/setup-dotnet@v2
+      with:
+        dotnet-version: '6.x.x'
+    - run: dotnet test
  
