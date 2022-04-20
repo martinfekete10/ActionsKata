@@ -9,5 +9,16 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Hello message
+    - name: Print welcome message
       run: echo "Hello World!"
+  
+ # build:
+ #   runs-on: ubuntu-latest
+    
+ #   steps:
+ #   - uses: actions/checkout@v3
+ #   - uses: actions/setup-dotnet@v2
+ #    with:
+ #       dotnet-version: '6.x.x'
+ #   - run: dotnet build Actions-Kata
+ 
